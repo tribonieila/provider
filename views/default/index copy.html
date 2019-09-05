@@ -1,0 +1,125 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" href="{{=URL('static','dist/css/styles.css')}}" type="text/css" media="screen"/>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body{
+        font-family:Arial;
+        background:#fff url('{{=URL('static','images/merch_bg.png')}}') no-repeat top left;
+        background-size: 900px 700px;
+        background-position: left bottom;
+    }
+    .title{
+        width:548px;
+        height:119px;
+        position:absolute;
+        top:400px;
+        left:150px;
+        background:transparent url(title.png) no-repeat top left;
+    }
+    a.back{
+        background:transparent url(back.png) no-repeat top left;
+        position:fixed;
+        width:150px;
+        height:27px;
+        outline:none;
+        bottom:0px;
+        left:0px;
+    }
+    #content{
+        margin:0 auto;
+    }
+
+
+</style>
+<div class="navigation" id="nav">
+    <div class="item user">
+        <img src="{{=URL('static','dist/images/bg_user.png')}}" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <h2>Inv Sys.</h2>
+        <!-- <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Properties</a></li>
+            <li><a href="#">Privacy</a></li>
+        </ul> -->
+    </div>
+    <div class="item home">
+        <img src="{{=URL('static','dist/images/bg_home.png')}}" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <h2>HRM Sys.</h2>
+        <!-- <ul>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul> -->
+    </div>
+    <div class="item shop">
+        <img src="{{=URL('static','dist/images/bg_shop.png')}}" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <h2>Adm Sys.</h2>
+        <!-- <ul>
+            <li><a href="#">Catalogue</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Offers</a></li>
+        </ul> -->
+    </div>
+    <div class="item camera">
+        <img src="{{=URL('static','dist/images/bg_camera.png')}}" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <h2>Users</h2>
+        <!-- <ul>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Prints</a></li>
+            <li><a href="#">Submit</a></li>
+        </ul> -->
+    </div>
+    <!-- <div class="item fav">
+        <img src="{{=URL('static','dist/images/bg_fav.png')}}" alt="" width="199" height="199" class="circle"/>
+        <a href="#" class="icon"></a>
+        <h2>Love</h2>
+        <ul>
+            <li><a href="#">Social</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Comments</a></li>
+        </ul>
+    </div> -->
+</div>
+
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<script src="{{=URL('static','dist/jquery.easing.1.3.js')}}"></script>
+
+<script type="text/javascript">
+    $(function() {
+        $('#nav > div').hover(
+        function () {
+            var $this = $(this);
+            $this.find('img').stop().animate({
+                'width'     :'199px',
+                'height'    :'199px',
+                'top'       :'-25px',
+                'left'      :'-25px',
+                'opacity'   :'1.0'
+            },500,'easeOutBack',function(){
+                $(this).parent().find('ul').fadeIn(700);
+            });
+
+            $this.find('a:first,h2').addClass('active');
+        },
+        function () {
+            var $this = $(this);
+            $this.find('ul').fadeOut(500);
+            $this.find('img').stop().animate({
+                'width'     :'52px',
+                'height'    :'52px',
+                'top'       :'0px',
+                'left'      :'0px',
+                'opacity'   :'0.1'
+            },5000,'easeOutBack');
+
+            $this.find('a:first,h2').removeClass('active');
+        }
+    );
+    });
+</script>
